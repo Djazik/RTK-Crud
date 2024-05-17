@@ -1,0 +1,34 @@
+.navbar {
+    display:  flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.navbar__logo {
+    padding-right: 35px;
+}
+
+.navbar__item {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+
+}
+
+.navbar__item span {
+    color: rgba(21, 12, 1, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.navbar__carts {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar__carts a {
+    color: rgba(21, 12, 1, 1);
+
+}

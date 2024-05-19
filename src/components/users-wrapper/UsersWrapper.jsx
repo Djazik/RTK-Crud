@@ -1,12 +1,12 @@
-import React, { memo } from "react";
-import "../productwrapper/index.css"
+import React, { memo, useState } from "react";
+import "../productwrapper/index.css";
 import { useDeleteUserMutation } from "../../context/api/UserApi";
+import EditModle from "../edit-modle/EditModle";
 
-const UsersWrapper = ({ users, isAdmin, }) => {
+const UsersWrapper = ({ users, isAdmin }) => {
+  const [editUser, setEditUser] = useState(null);
+
   let [deleteUser, { isLoading }] = useDeleteUserMutation();
-  const handleDeleteUser = (id) => {
-    deleteUser(id);
-  };
 
   let userItems = users?.map((user) => (
     <div key={user.id} className="product__cart">
@@ -23,13 +23,19 @@ const UsersWrapper = ({ users, isAdmin, }) => {
       <div className="product__btn">
         {isAdmin ? (
           <div className="pr__edit">
-            <button className="product__edit">edit</button>
-            <button className="product__edit" onClick={() => handleDeleteUser(user.id)}>delete</button>
+            <button className="product__edit" onClick={() => setEditUser(user)}>
+              edit
+            </button>
+            <button
+              className="product__edit"
+              onClick={() => deleteUser(user.id)}
+            >
+              delete
+            </button>
           </div>
         ) : (
           <></>
         )}
-        
       </div>
     </div>
 
@@ -50,7 +56,6 @@ const UsersWrapper = ({ users, isAdmin, }) => {
     // </div>
   ));
 
-
   return (
     <div>
       <section className="container">
@@ -65,9 +70,9 @@ const UsersWrapper = ({ users, isAdmin, }) => {
             </p>
           </div>
           <div className="pr__cart">{userItems}</div>
-          {/* <div className="product__cart">{productItem}</div> */}
         </div>
       </section>
+      {editUser ? <EditModle data={editUser} setData={setEditUser}/> : <></>}
     </div>
   );
 };

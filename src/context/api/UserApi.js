@@ -1,4 +1,4 @@
-import { api } from ".";
+import { api } from "./index";
 
 export const userApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -9,6 +9,13 @@ export const userApi = api.injectEndpoints({
       }),
       providesTags: ["User"],
     }),
+    getUserDetail: build.query({
+      query: (id) => ({
+        url: `/users/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["User"],
+    }), // Bu yerda vergul yetishmayapti
     deleteUser: build.mutation({
       query: (id) => ({
         url: `users/${id}`,
@@ -24,8 +31,21 @@ export const userApi = api.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
+    putUser: build.mutation({
+      query: ({ id, body }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["User"],
+    }),
   }),
 });
 
-export const { useGetUsersQuery, useDeleteUserMutation, usePostUserMutation } =
- userApi;
+export const {
+  useGetUsersQuery,
+  useDeleteUserMutation,
+  usePostUserMutation,
+  useGetUserDetailQuery,
+  usePutUserMutation,
+} = userApi;

@@ -7,9 +7,7 @@ import { useDeleteProductMutation } from "../../context/api/ProductApi";
 export const ProductWrapper = ({ products, isAdmin }) => {
   let [deleteProduct, { isLoading }] = useDeleteProductMutation();
 
-  const handleDeleteProduct = (id) => {
-    deleteProduct(id);
-  };
+
 
   let productItem = products?.map((product) => (
     <div key={product.id} className="product__cart">
@@ -25,7 +23,7 @@ export const ProductWrapper = ({ products, isAdmin }) => {
         {isAdmin ? (
           <div className="pr__edit">
             <button className="product__edit" >edit</button>
-            <button className="product__edit" onClick={() => handleDeleteProduct(product.id)}>
+            <button className="product__edit" onClick={() => deleteProduct(product.id)}>
               delete
             </button>
           </div>

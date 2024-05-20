@@ -39,8 +39,23 @@ export const productApi = api.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
+   
+    getSearchProducts: build.query({
+      query: (params) => ({
+        url: `/product`,
+        method: "GET",
+        params,
+      }),
+      providesTags: ["Product"],
+    }),
   }),
 });
 
-export const { useGetProductQuery, usePostProductMutation,useDeleteProductMutation, useGetProductDetailQuery, usePutProductMutation } =
-  productApi;
+export const {
+  useGetProductQuery,
+  usePostProductMutation,
+  useDeleteProductMutation,
+  useGetProductDetailQuery,
+  usePutProductMutation,
+  useGetSearchProductsQuery,
+} = productApi;

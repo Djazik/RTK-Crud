@@ -6,12 +6,12 @@ import { IoCartOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/image/615px-Food_Network_New_Logo 2.svg";
 import SearchSection from "./SearchSection";
-import { useGetSearchProductsQuery } from "../../context/api/ProductApi";
+import { useGetSearchProductsQuery } from "../../context/apii/ProductsApii";
 
 const Navbar = () => {
   // const [showSearch, setShowSearch] = useState(false);
   const [value, setValue] = useState("")
-  let {data}  = useGetSearchProductsQuery({search:value})
+  let {data}  = useGetSearchProductsQuery({q: value})
   console.log(data)
   const count = useSelector((state) => state.counter.value);
   return (

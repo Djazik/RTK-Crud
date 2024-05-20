@@ -9,7 +9,7 @@ const Admin = () => {
       <div className="admin__sidebar">
       <li><Link to="usercreate">Create User</Link></li>
       <li><Link to="usermanage">Manage User</Link></li>
-      <li><Link to="productcreate">Manage Product</Link></li>
+      <li><Link to="productcreate">Create Product</Link></li>
       <li><Link to="productmanage">Manage Product</Link></li>
       </div>
       <div className="admin__content">

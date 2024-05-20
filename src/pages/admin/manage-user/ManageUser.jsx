@@ -7,7 +7,6 @@ export const ManageUser = () => {
   return (
     <div>
         <UsersWrapper isAdmin={true} users={data}/>
-        <Footer/>
     </div>
   )
 }

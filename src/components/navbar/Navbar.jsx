@@ -29,6 +29,9 @@ const Navbar = () => {
          <span>Manageuser</span>
         </NavLink> */}
        </div>
+       <div className="navbar__search">
+
+       </div>
       <div className="navbar__carts">
       <NavLink to={"/wishlist"}>
           <FaRegHeart/>

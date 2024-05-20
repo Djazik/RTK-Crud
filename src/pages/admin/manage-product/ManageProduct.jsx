@@ -9,7 +9,6 @@ const ManageProduct = () => {
   return (
     <div>
         <ProductWrapper isAd={true}  isAdmin={true} products={productData}/>
-        <Footer/>
     </div>
   )
 }

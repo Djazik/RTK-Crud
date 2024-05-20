@@ -39,21 +39,7 @@ const UsersWrapper = ({ users, isAdmin }) => {
       </div>
     </div>
 
-    // <div key={product.id}>
-    //   <img src={product.avatar} alt="" />
-    //   <h2>{product.title}</h2>
-    //   <p>{product.price}$</p>
-    //   {isAdmin ? (
-    //     <>
-    //       <button>edit</button>
-    //       <button onClick={() => handleDeleteProduct(product.id)}>
-    //         delete
-    //       </button>
-    //     </>
-    //   ) : (
-    //     <></>
-    //   )}
-    // </div>
+
   ));
 
   return (

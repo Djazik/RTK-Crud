@@ -1,10 +1,13 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import "./index.css";
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useDeleteProductMutation } from "../../context/api/ProductApi";
+import ProductEditModal from "../productEditModal/ProductEditModal";
 
 export const ProductWrapper = ({ products, isAdmin }) => {
+  const [editProduct, setEditProduct] = useState(null)
+
   let [deleteProduct, { isLoading }] = useDeleteProductMutation();
 
 
@@ -22,7 +25,7 @@ export const ProductWrapper = ({ products, isAdmin }) => {
       <div className="product__btn">
         {isAdmin ? (
           <div className="pr__edit">
-            <button className="product__edit" >edit</button>
+            <button className="product__edit" onClick={()=> setEditProduct(product)}>edit</button>
             <button className="product__edit" onClick={() => deleteProduct(product.id)}>
               delete
             </button>
@@ -37,21 +40,7 @@ export const ProductWrapper = ({ products, isAdmin }) => {
       </div>
     </div>
 
-    // <div key={product.id}>
-    //   <img src={product.avatar} alt="" />
-    //   <h2>{product.title}</h2>
-    //   <p>{product.price}$</p>
-    //   {isAdmin ? (
-    //     <>
-    //       <button>edit</button>
-    //       <button onClick={() => handleDeleteProduct(product.id)}>
-    //         delete
-    //       </button>
-    //     </>
-    //   ) : (
-    //     <></>
-    //   )}
-    // </div>
+  
   ));
   return (
     <div>
@@ -67,9 +56,9 @@ export const ProductWrapper = ({ products, isAdmin }) => {
             </p>
           </div>
           <div className="pr__cart">{productItem}</div>
-          {/* <div className="product__cart">{productItem}</div> */}
         </div>
       </section>
+     {editProduct ? <ProductEditModal data={editProduct} setData={setEditProduct} /> : <></>}
     </div>
   );
 };

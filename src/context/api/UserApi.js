@@ -15,7 +15,7 @@ export const userApi = api.injectEndpoints({
         method: "GET",
       }),
       providesTags: ["User"],
-    }), // Bu yerda vergul yetishmayapti
+    }),
     deleteUser: build.mutation({
       query: (id) => ({
         url: `users/${id}`,

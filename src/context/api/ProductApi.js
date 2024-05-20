@@ -1,4 +1,4 @@
-import { api } from ".";
+import { api } from "./index";
 
 export const productApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -7,14 +7,21 @@ export const productApi = api.injectEndpoints({
       query: () => ({
         url: "/product",
       }),
-      providesTags: ["User"],
+      providesTags: ["Product"],
+    }),
+    getProductDetail: build.query({
+      query: (id) => ({
+        url: `/product/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["Product"],
     }),
     deleteProduct: build.mutation({
       query: (id) => ({
         url: `product/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: ["Product"],
     }),
     postProduct: build.mutation({
       query: (body) => ({
@@ -22,10 +29,18 @@ export const productApi = api.injectEndpoints({
         method: "POST",
         body,
       }),
-      invalidatesTags: ["User"],
+      invalidatesTags: ["Product"],
+    }),
+    putProduct: build.mutation({
+      query: ({ id, body }) => ({
+        url: `/product/${id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Product"],
     }),
   }),
 });
 
-export const { useGetProductQuery, usePostProductMutation,useDeleteProductMutation } =
+export const { useGetProductQuery, usePostProductMutation,useDeleteProductMutation, useGetProductDetailQuery, usePutProductMutation } =
   productApi;

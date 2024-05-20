@@ -9,6 +9,8 @@ import CreateProduct from "./pages/admin/create-product/CreateProduct";
 import ManageProduct from "./pages/admin/manage-product/ManageProduct";
 import Login from "./pages/login/Login";
 import Auth from "./pages/auth/Auth";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
       </Routes>
+      <ToastContainer/>
     </>
   );
 }

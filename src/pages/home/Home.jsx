@@ -7,6 +7,7 @@ import Main from '../../components/main/Main'
 import Feature from '../../components/feature/Feature'
 import Contact from '../../components/contact/Contact'
 import Footer from '../../components/footer/Footer'
+// import Login from '../login/Login'
 
 const Home = () => {
    let {data, error, isLoading, isError, isSuccess}=  useGetUsersQuery()
@@ -20,6 +21,7 @@ const Home = () => {
             <UsersWrapper isAdmin={false} users={data}/>
             <Contact/>
             <Footer/>
+            {/* <Login/> */}
     </div>
   )
 }

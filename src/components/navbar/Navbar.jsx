@@ -16,7 +16,7 @@ const Navbar = () => {
        <NavLink className="navbar__logo" to={"/"}>
           <img src={Logo} alt="" />
         </NavLink>
-       <NavLink to={"/admin/productcreate"}>
+       {/* <NavLink to={"/admin/productcreate"}>
          <span>Createproduct</span>
         </NavLink>
         <NavLink to={"/admin/productmanage"}>
@@ -27,7 +27,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink to={"/admin/usermanage"}>
          <span>Manageuser</span>
-        </NavLink>
+        </NavLink> */}
        </div>
       <div className="navbar__carts">
       <NavLink to={"/wishlist"}>
@@ -36,6 +36,13 @@ const Navbar = () => {
         <NavLink to={"/cart"}>
           <IoCartOutline/>
         </NavLink>
+
+          <NavLink to={"/login"}>
+            <span>login</span>
+          </NavLink>
+          <NavLink to={"/admin"}>
+            <span>admin</span>
+          </NavLink>
       </div>
     </div>
     </div>

@@ -9,27 +9,26 @@ import CreateProduct from "./pages/admin/create-product/CreateProduct";
 import ManageProduct from "./pages/admin/manage-product/ManageProduct";
 import Login from "./pages/login/Login";
 import Auth from "./pages/auth/Auth";
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
     <>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Auth />}>
-          <Route path="admin" element={<Admin />}>
-            <Route path="usercreate" element={<CreateUser />} />
-            <Route path="usermanage" element={<ManageUser />} />
-            <Route path="productcreate" element={<CreateProduct />} />
-            <Route path="productmanage" element={<ManageProduct />} />
-          </Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
         </Route>
-
-        <Route path="/login" element={<Login />} />
+        <Route path="admin" element={<Admin />}>
+          <Route path="usercreate" element={<CreateUser />} />
+          <Route path="usermanage" element={<ManageUser />} />
+          <Route path="productcreate" element={<CreateProduct />} />
+          <Route path="productmanage" element={<ManageProduct />} />
+        </Route>
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

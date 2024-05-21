@@ -1,24 +1,31 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import "./admin.css"
-import ManageProduct from './manage-product/ManageProduct'
+import React from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import "./admin.css";
 
 const Admin = () => {
+  let navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("x-auth-token");
+    navigate("/login");
+  };
+
   return (
-    <div className='admin container' >
+    <div className='admin container'>
       <div className="admin__sidebar">
-      <li><Link to="usercreate">Create User</Link></li>
-      <li><Link to="usermanage">Manage User</Link></li>
-      <li><Link to="productcreate">Create Product</Link></li>
-      <li><Link to="productmanage">Manage Product</Link></li>
+        <ul>
+          <li><Link to="usercreate">Create User</Link></li>
+          <li><Link to="usermanage">Manage User</Link></li>
+          <li><Link to="productcreate">Create Product</Link></li>
+          <li><Link to="productmanage">Manage Product</Link></li>
+        </ul>
       </div>
       <div className="admin__content">
-      <Outlet/>
+        <Outlet/>
+        <button className='admin__btn' onClick={handleLogout}>Log Out</button>
       </div>
-
-
     </div>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;

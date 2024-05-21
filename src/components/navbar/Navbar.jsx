@@ -2,7 +2,8 @@ import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline ,IoPersonOutline} from "react-icons/io5";
+
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/image/615px-Food_Network_New_Logo 2.svg";
 import SearchSection from "./SearchSection";
@@ -59,11 +60,9 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink to={"/login"}>
-            <span>login</span>
+            <span><IoPersonOutline /></span>
           </NavLink>
-          <NavLink to={"/admin"}>
-            <span>admin</span>
-          </NavLink>
+          
         </div>
       </div>
     </div>
